@@ -1,7 +1,7 @@
 # Ax100---Architecture
 Overcomplicated, extendable ISA implemented in the game "Turing Complete".
 
-()[base ISA]
+[base ISA](https://github.com/SuperCraftAlex/Ax100---Architecture/blob/main/base-isa.md)
 
 ## Goals 
 - 64 bit
