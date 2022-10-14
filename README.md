@@ -1,5 +1,5 @@
 # Ax100---Architecture
-Overcomplicated, extendable ISA implemented in the game Turinf Complete.
+Overcomplicated, extendable ISA implemented in the game "Turing Complete".
 
 ## Goals 
 - 64 bit
