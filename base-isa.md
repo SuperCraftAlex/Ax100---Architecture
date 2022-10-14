@@ -25,8 +25,29 @@
 | 0x100 | rg1 | Ram get bank 1 |  |  |  |  |
 | 0x110 | rs1 | Ram set bank 1 |  |  |  |  |
 | 0x120 | rg2 | Ram get bank 2 |  |  |  |  |
-| 0x13 | rs2 | Ram set bank 2 |  |  |  |  |
-| 0x14 | cnf | configurate |  |  |  |  |
-| 0x15 | jmp | jump |  |  |  |  |
-| 0x16 | jsr | jump to subroutine |  |  |  |  |
-| 0x17 | jck | jump kernal |  |  |  |  |
+| 0x130 | rs2 | Ram set bank 2 |  |  |  |  |
+| 0x140 | jmp | jump |  |  |  |  |
+| 0x150 | jsr | jump to subroutine |  |  |  |  |
+| 0x160 | jck | jump kernal |  |  |  |  |
+
+## commom instruction arguments
+
+### register
+| hex | name | desc |
+| - | - | - |
+| 0x000 | pc | General Programm counter |
+| 0x010 | res | ALU result register A |
+| 0x020 | reb | ALU result register B |
+| 0x030 | fla | ALU flag register A |
+| 0x040 | flb | ALU flag register B |
+| 0x050 | - | Reserved |
+| 0x060 | - | Reserved |
+| 0x070 | - | Reserved |
+| 0x080 | - | Reserved |
+| 0x090 | - | Reserved |
+| 0x0A0 | - | Reserved |
+| 0x0B0 | - | Reserved |
+| 0x0C0 | - | Reserved |
+| 0x0D0 | - | Reserved |
+| 0x0E0 | - | Reserved |
+| 0x0F0 | - | Reserved |
