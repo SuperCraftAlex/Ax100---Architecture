@@ -40,14 +40,14 @@
 | 0x020 | reb | ALU result register B |
 | 0x030 | fla | ALU flag register A |
 | 0x040 | flb | ALU flag register B |
-| 0x050 | - | Reserved |
-| 0x060 | - | Reserved |
-| 0x070 | - | Reserved |
-| 0x080 | - | Reserved |
-| 0x090 | - | Reserved |
-| 0x0A0 | - | Reserved |
-| 0x0B0 | - | Reserved |
-| 0x0C0 | - | Reserved |
-| 0x0D0 | - | Reserved |
-| 0x0E0 | - | Reserved |
-| 0x0F0 | - | Reserved |
+| 0x050 to 0x0F0 | - | reserved |
+| 0x100 to 0x2F0 | r0 - r31 | General purpose register |
+| 0x300 to 0xFF0 | (r32 - ?) | optional general purpose register |
+
+### ram as arguments
+| hex | name | desc|
+| - | - | - |
+| 0x1000 | ra1 | Ram accses for bank 1 |
+| 0x1010 | ra2 | Ram accses for bank 2 |
+
+### I/O devices as arguments
