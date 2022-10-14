@@ -17,12 +17,6 @@ Overcomplicated, extendable ISA implemented in the game "Turing Complete".
 - CPUs can have things like cache, fpus and other extensions
 
 ## Turing Complete Hardware
-- [InPlanning] Xtc100c10 Core rev 1
-- [InPlanning] Xtc101f11 FPU 1 Rev 1
-- [InPlanning] Xtc102mc11 Memory Controler (CPU) and Cache rev1
-- [InPlanning] Xtc103io11 I/O controler 1 rev 1
-- [InPlanning] Xtc104m11 Memory controler 1 rev 1
-- [InPlanning] Xtcc00 simple CPU
 
 ## Extensions
 - Ax101 Cache system
