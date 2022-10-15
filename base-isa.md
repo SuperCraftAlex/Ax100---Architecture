@@ -1,21 +1,30 @@
 # Ax100 Base ISA
 
 ### op:
+
 0 arg -> INSTR
+
 1 arg -> INSTR ARG
+
 2 arg -> INSTR ARG ARG
+
 3 arg -> INSTR ARG ARG ARG
 
 ### Instruction Layout (INSTR):
+
 INSTR = 64 bit:
 | pa[^1] | Instruction | instruction length |
 | - | - | - |
 | 0001 - FFFF | 00 - FF | 0-F |
 
 = 0xCCCCBBA
+
 A = arg length
+
 BB = instruction
+
 CCCC = pa[^1]
+
 ## Instructions
 
 ### Basic instructions
@@ -62,6 +71,7 @@ CCCC = pa[^1]
 | 0x460 | unsi | unset interrupt | a | | stops listening on the interrupt condition | a = interrupt condition |
 | 0x470 | cli | clear interupt | a || clears the "triggered" flag of the specifies interrupt | a = interrupt|
 | 0x480 | cep | change core instruction load position | a b | | jumps to an specified addres from a different programm source | a = programm source; b = addres |
+| 0x490 | are | export arguments | a b c || exports the content of thw argument registers | a, b, c = destination |
 
 [^1]: possible arg sets
 [^2]: can't be implemented in a single tick
@@ -70,10 +80,12 @@ CCCC = pa[^1]
 
 instruction extensions get added to the instruction
 
+args of the pa will be added after the args of the normal instruvtions
+
 ### COND
 Normally: Executes instruction only if condition is met
 condotions:
-| hex | name | desc | args | argdesc |
+| hex | opcode | desc | args | argdesc |
 | - | - | - | - | - |
 | 0x1000 | eq | equals || a b ||
 | 0x2000 | neq | not equal || a b ||
@@ -87,6 +99,15 @@ condotions:
 | 0xA000 | nc | no carry | checks for the carry flag|||
 | 0xB000 | itr | interrupt | checks for a specific interrupt to be triggered | a | a = interrupt |
 
+### ARGPS
+passes args to the target
+
+| hex | opcode | desc | args | argdesc |
+| - | - | - | - | - |
+| 0x10000 | ap1 | pass 1 arg | a | a = arg to pass|
+| 0x20000 | ap2 | pass 2 arg | a b | a, b = args to pass|
+| 0x30000 | ap3 | pass 3 arg | a b c | a, b, c = args to pass|
+
 ## commom instruction arguments
 
 ### register
@@ -97,9 +118,10 @@ condotions:
 | 0x020 | reb | ALU result register B |
 | 0x030 | fla | ALU flag register A |
 | 0x040 | -| Reserved |
-| 0x050 to 0x0F0 | - | reserved |
-| 0x100 to 0x2F0 | r0 - r31 | General purpose register |
-| 0x300 to 0xFF0 | (r32 - ?) | optional general purpose register |
+| 0x050 to 0x070 | ar1 to ar3 | argument registers |
+| 0x080 to 0x0F0 | - | reserved |
+| 0x100 to 0x2F0 | r0 to r31 | General purpose register |
+| 0x300 to 0xFF0 | (r32 to ?) | optional general purpose register |
 
 ### ram as arguments
 | hex | name | desc|
@@ -108,3 +130,9 @@ condotions:
 | 0x1010 | ra2 | Ram accses for bank 2 |
 
 ### I/O devices as arguments
+
+## Interrupts
+
+### possible interrupt conditions
+| hex | name | desc | arguments it sets |
+| - | - | - | - |
