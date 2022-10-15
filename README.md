@@ -4,7 +4,7 @@ Overcomplicated, extendable ISA implemented in the game "Turing Complete".
 [base ISA](https://github.com/SuperCraftAlex/Ax100---Architecture/blob/main/base-isa.md)
 
 ## Goals 
-- 64 bit
+- 64 bit (in future also 32 bit)
 - complex instructions for doing much things in only one clock cycle
 - Easy to create a CPU with using the base core
 - Multi core
