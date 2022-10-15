@@ -51,7 +51,7 @@ CCCC = pa[^1]
 | 0x110 | rs1 | Ram set bank 1 | a b |  | sets the value of a element in ram bank 1 to b | a = addres; b = value |
 | 0x120 | rg2 | Ram get bank 2 | a o |  | outputs the value of a 64 bit value in ram bank 1 to o | a = addres; o = to |
 | 0x130 | rs2 | Ram set bank 2 | a b |  | sets the value of a element in ram bank 2 to b | a = addres; b = value |
-| 0x140 | jmp | jump | a | COND | jumps to a programm addres | a = programm addres to jump to |
+| 0x140 | jmp | jump | a | [COND](COND) | jumps to a programm addres | a = programm addres to jump to |
 | 0x150 | jsr | jump to subroutine | a | COND; ARGPS | jumps to a programm addres with pushing the last position to stack | a = programm addres to jump to |
 | 0x160 | jck | jump kernal | a | COND; ARGPS |  | a = programm addres to jump to |
 | 0x170 | ret | return | | ARGPS; COND | returns from subroutine | |
@@ -82,6 +82,7 @@ instruction extensions get added to the instruction
 
 args of the pa will be added after the args of the normal instruvtions
 
+[COND]:
 ### COND
 Normally: Executes instruction only if condition is met
 condotions:
