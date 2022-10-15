@@ -30,48 +30,48 @@ CCCC = pa[^1]
 ### Basic instructions
 | hex | opcode | name | args | pa[^1] | desc | arg desc |
 | --- | ------ | -----| ---- | --- | ---- | -------- |
-| 0x000 | nop | no operation |  |  | does nothing |  |
-| 0x010 | mov | move | a o |  | move | a = from; b = to |
-| 0x020 | not | bitwise not | a o |  |  | a = from; o = to |
-| 0x020 | and | bitwise and | a b o |  |  | a, b = from; o = to |
-| 0x030 | or | bitwise or | a b o |  |  | a, b = from; o = to |
-| 0x040 | nor | bitwise nor | a b o |  |  | a, b = from; o = to |
-| 0x050 | nand | bitwiae nand | a b o |  |  | a, b = from; o = to |
-| 0x060 | xor | bitwise xor | a b o |  |  | a, b = from; o = to |
-| 0x070 | xnor | bitwise xnor | a b o |  |  | a, b = from; o = to |
-| 0x080 | neg | negate | a o |  |  | a = from; o = to |
-| 0x090 | add | add | a b o |  |  | a, b = from; o = to |
-| 0x0A0 | sub | subtract | a b o |  |  | a, b = from; o = to |
-| 0x0B0 | mul | multiply | a b o |  |  | a, b = from; o = to |
-| 0x0C0 | shl | shift left | a b o |  |  | a, b = from; o = to |
-| 0x0D0 | shr | shift right | a b o |  |  | a, b = from; o = to |
-| 0x0E0 | asl | arithmetic shift left | a b o |  |  | a, b = from; o = to |
-| 0x0F0 | asr | arithmetic shift right | a b o |  |  | a, b = from; o = to |
-| 0x100 | rg1 | Ram get bank 1 | a o |  | outputs the value of a 64 bit value in ram bank 1 to o | a = addres; o = to |
-| 0x110 | rs1 | Ram set bank 1 | a b |  | sets the value of a element in ram bank 1 to b | a = addres; b = value |
-| 0x120 | rg2 | Ram get bank 2 | a o |  | outputs the value of a 64 bit value in ram bank 1 to o | a = addres; o = to |
-| 0x130 | rs2 | Ram set bank 2 | a b |  | sets the value of a element in ram bank 2 to b | a = addres; b = value |
-| 0x140 | jmp | jump | a | COND | jumps to a programm addres | a = programm addres to jump to |
-| 0x150 | jsr | jump to subroutine | a | COND; ARGPS | jumps to a programm addres with pushing the last position to stack | a = programm addres to jump to |
-| 0x160 | jck | jump kernal | a | COND; ARGPS |  | a = programm addres to jump to |
-| 0x170 | ret | return | | ARGPS; COND | returns from subroutine | |
-| 0x180 | hlt | halt (core) | | | halts the core | |
-| 0x190 | hlp | halt (cpu) | | | halts the whole cpu | |
-| 0x1A0 | xchg[^2] | exchange | a b | | exchanges two positions | a, b = things to exchange |
+| 0x00 | nop | no operation |  |  | does nothing |  |
+| 0x01 | mov | move | a o |  | move | a = from; b = to |
+| 0x02 | not | bitwise not | a o |  |  | a = from; o = to |
+| 0x02 | and | bitwise and | a b o |  |  | a, b = from; o = to |
+| 0x03 | or | bitwise or | a b o |  |  | a, b = from; o = to |
+| 0x04 | nor | bitwise nor | a b o |  |  | a, b = from; o = to |
+| 0x05 | nand | bitwiae nand | a b o |  |  | a, b = from; o = to |
+| 0x06 | xor | bitwise xor | a b o |  |  | a, b = from; o = to |
+| 0x07 | xnor | bitwise xnor | a b o |  |  | a, b = from; o = to |
+| 0x08 | neg | negate | a o |  |  | a = from; o = to |
+| 0x09 | add | add | a b o |  |  | a, b = from; o = to |
+| 0x0A | sub | subtract | a b o |  |  | a, b = from; o = to |
+| 0x0B | mul | multiply | a b o |  |  | a, b = from; o = to |
+| 0x0C | shl | shift left | a b o |  |  | a, b = from; o = to |
+| 0x0D | shr | shift right | a b o |  |  | a, b = from; o = to |
+| 0x0E | - | reserved | | | | |
+| 0x0F | asr | arithmetic shift right | a b o |  |  | a, b = from; o = to |
+| 0x10 | rg1 | Ram get bank 1 | a o |  | outputs the value of a 64 bit value in ram bank 1 to o | a = addres; o = to |
+| 0x11 | rs1 | Ram set bank 1 | a b |  | sets the value of a element in ram bank 1 to b | a = addres; b = value |
+| 0x12 | rg2 | Ram get bank 2 | a o |  | outputs the value of a 64 bit value in ram bank 1 to o | a = addres; o = to |
+| 0x13 | rs2 | Ram set bank 2 | a b |  | sets the value of a element in ram bank 2 to b | a = addres; b = value |
+| 0x14 | jmp | jump | a | COND | jumps to a programm addres | a = programm addres to jump to |
+| 0x15 | jsr | jump to subroutine | a | COND; ARGPS | jumps to a programm addres with pushing the last position to stack | a = programm addres to jump to |
+| 0x16 | jck | jump kernal | a | COND; ARGPS |  | a = programm addres to jump to |
+| 0x17 | ret | return | | ARGPS; COND | returns from subroutine | |
+| 0x18 | hlt | halt (core) | | | halts the core | |
+| 0x19 | hlp | halt (cpu) | | | halts the whole cpu | |
+| 0x1A | xchg[^2] | exchange | a b | | exchanges two positions | a, b = things to exchange |
 
 ### Advanced & Compatibility & Multi core instructions
 | hex | opcode | name | args | pa* | desc | arg desc |
 | --- | ------ | -----| ---- | --- | ---- | -------- |
-| 0x400 | cmsg | core message send | a b | | sends a message to a core of the same cpu | a = core id of the reciever core; b = message |
-| 0x410 | pmsg | cpu message send | a b | | sends a message to a other cpu | a = id of the reciever cpu; b = message |
-| 0x420 | wafc | wait (core) | a | COND | waits untill a specific condition is met (halts the core until met) continues when the condition of the COND pa is met | a = register / argument... |
-| 0x430 | wafp | wait (cpu) | a | COND | waits untill a specific condition is met (halts the cpu until met) continues when the condition of the COND pa is met | a = register / argument... |
-| 0x440 | seti | set interrupt | a | | starts listening on the interrupt condition (needed to use if you want to check if the interrupt condition is met without using setij) | a = interrupt condition |
-| 0x450 | setij | set interrupt with jump | a b | | starts listening on the interrupt condition and jumps if the condition is met | a = interrupt condition; b = addres to jump to |
-| 0x460 | unsi | unset interrupt | a | | stops listening on the interrupt condition | a = interrupt condition |
-| 0x470 | cli | clear interupt | a || clears the "triggered" flag of the specifies interrupt | a = interrupt|
-| 0x480 | cep | change core instruction load position | a b | | jumps to an specified addres from a different programm source | a = programm source; b = addres |
-| 0x490 | are | export arguments | a b c || exports the content of thw argument registers | a, b, c = destination |
+| 0x40 | cmsg | core message send | a b | | sends a message to a core of the same cpu | a = core id of the reciever core; b = message |
+| 0x41 | pmsg | cpu message send | a b | | sends a message to a other cpu | a = id of the reciever cpu; b = message |
+| 0x42 | wafc | wait (core) | a | COND | waits untill a specific condition is met (halts the core until met) continues when the condition of the COND pa is met | a = register / argument... |
+| 0x43 | wafp | wait (cpu) | a | COND | waits untill a specific condition is met (halts the cpu until met) continues when the condition of the COND pa is met | a = register / argument... |
+| 0x44 | seti | set interrupt | a | | starts listening on the interrupt condition (needed to use if you want to check if the interrupt condition is met without using setij) | a = interrupt condition |
+| 0x45 | setij | set interrupt with jump | a b | | starts listening on the interrupt condition and jumps if the condition is met | a = interrupt condition; b = addres to jump to |
+| 0x46 | unsi | unset interrupt | a | | stops listening on the interrupt condition | a = interrupt condition |
+| 0x47 | cli | clear interupt | a || clears the "triggered" flag of the specifies interrupt | a = interrupt|
+| 0x48 | cep | change core instruction load position | a b | | jumps to an specified addres from a different programm source | a = programm source; b = addres |
+| 0x49 | are | export arguments | a b c || exports the content of thw argument registers | a, b, c = destination |
 
 [^1]: possible arg sets
 [^2]: can't be implemented in a single tick
@@ -87,26 +87,26 @@ Normally: Executes instruction only if condition is met
 condotions:
 | hex | opcode | desc | args | argdesc |
 | - | - | - | - | - |
-| 0x1000 | eq | equals || a b ||
-| 0x2000 | neq | not equal || a b ||
-| 0x3000 | ls | less || a b ||
-| 0x4000 | lseq | less or equal || a b ||
-| 0x5000 | gr | greater || a b ||
-| 0x6000 | greq | greater or equal || a b ||
-| 0x7000 | zr | zero | if arg is zero | a | a = to check|
-| 0x8000 | cr | carry | checks for the carry flag |||
-| 0x9000 | nz | not zero | if arg is not zero | a | a = to check|
-| 0xA000 | nc | no carry | checks for the carry flag|||
-| 0xB000 | itr | interrupt | checks for a specific interrupt to be triggered | a | a = interrupt |
+| 0x0001 | eq | equals || a b ||
+| 0x0002 | neq | not equal || a b ||
+| 0x0003 | ls | less || a b ||
+| 0x0004 | lseq | less or equal || a b ||
+| 0x0005 | gr | greater || a b ||
+| 0x0006 | greq | greater or equal || a b ||
+| 0x0007 | zr | zero | if arg is zero | a | a = to check|
+| 0x0008 | cr | carry | checks for the carry flag |||
+| 0x0009 | nz | not zero | if arg is not zero | a | a = to check|
+| 0x000A | nc | no carry | checks for the carry flag|||
+| 0x000B | itr | interrupt | checks for a specific interrupt to be triggered | a | a = interrupt |
 
 ### ARGPS
 passes args to the target
 
 | hex | opcode | desc | args | argdesc |
 | - | - | - | - | - |
-| 0x10000 | ap1 | pass 1 arg | a | a = arg to pass|
-| 0x20000 | ap2 | pass 2 arg | a b | a, b = args to pass|
-| 0x30000 | ap3 | pass 3 arg | a b c | a, b, c = args to pass|
+| 0x0010 | ap1 | pass 1 arg | a | a = arg to pass|
+| 0x0020 | ap2 | pass 2 arg | a b | a, b = args to pass|
+| 0x0030 | ap3 | pass 3 arg | a b c | a, b, c = args to pass|
 
 ## commom instruction arguments
 
