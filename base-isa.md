@@ -48,7 +48,7 @@
 | 0x470 | cep | change core instruction load position | a b | | jumps to an specified addres from a different programm source | a = programm source; b = addres |
 
 [^1]: possible arg sets
-[^2]: multi tick
+[^2]: cant be implemented in a single tick
 
 ## commom instruction arguments
 
@@ -59,7 +59,7 @@
 | 0x010 | res | ALU result register A |
 | 0x020 | reb | ALU result register B |
 | 0x030 | fla | ALU flag register A |
-| 0x040 | flb | ALU flag register B |
+| 0x040 | -| Reserved |
 | 0x050 to 0x0F0 | - | reserved |
 | 0x100 to 0x2F0 | r0 - r31 | General purpose register |
 | 0x300 to 0xFF0 | (r32 - ?) | optional general purpose register |
