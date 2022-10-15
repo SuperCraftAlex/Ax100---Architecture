@@ -1,5 +1,20 @@
 # Ax100 Base ISA
 
+### op:
+0 arg -> INSTR
+1 arg -> INSTR ARG
+2 arg -> INSTR ARG ARG
+3 arg -> INSTR ARG ARG ARG
+
+### Instruction Layout (INSTR):
+INSTR = 64 bit:
+| pa[^1] | Instruction | instruction length |
+| - | - | - |
+| 0001 - FFFF | 00 - FF | 0-F |
+= 0xCCCCBBA
+A = arg length
+BB = instruction
+CCCC = pa[^1]
 ## Instructions
 
 ### Basic instructions
@@ -29,11 +44,10 @@
 | 0x140 | jmp | jump | a | COND | jumps to a programm addres | a = programm addres to jump to |
 | 0x150 | jsr | jump to subroutine | a | COND; ARGPS | jumps to a programm addres with pushing the last position to stack | a = programm addres to jump to |
 | 0x160 | jck | jump kernal | a | COND; ARGPS |  | a = programm addres to jump to |
-| 0x170 | ret | return | | ARGPS | returns from subroutine | |
+| 0x170 | ret | return | | ARGPS; COND | returns from subroutine | |
 | 0x180 | hlt | halt (core) | | | halts the core | |
 | 0x190 | hlp | halt (cpu) | | | halts the whole cpu | |
-| 0x1A0 | xchg[^2] | exchange | a b | | exchanges two positions | a, b = things to exchange 
-|
+| 0x1A0 | xchg[^2] | exchange | a b | | exchanges two positions | a, b = things to exchange |
 
 ### Advanced & Compatibility & Multi core instructions
 | hex | opcode | name | args | pa* | desc | arg desc |
@@ -45,10 +59,32 @@
 | 0x440 | seti | set interrupt | a | | starts listening on the interrupt condition (needed to use if you want to check if the interrupt condition is met without using setij) | a = interrupt condition |
 | 0x450 | setij | set interrupt with jump | a b | | starts listening on the interrupt condition and jumps if the condition is met | a = interrupt condition; b = addres to jump to |
 | 0x460 | unsi | unset interrupt | a | | stops listening on the interrupt condition | a = interrupt condition |
-| 0x470 | cep | change core instruction load position | a b | | jumps to an specified addres from a different programm source | a = programm source; b = addres |
+| 0x470 | cli | clear interupt | a || clears the "triggered" flag of the specifies interrupt | a = interrupt|
+| 0x480 | cep | change core instruction load position | a b | | jumps to an specified addres from a different programm source | a = programm source; b = addres |
 
 [^1]: possible arg sets
-[^2]: cant be implemented in a single tick
+[^2]: can't be implemented in a single tick
+
+## instruction addition sets
+
+instruction extensions get added to the instruction
+
+### COND
+Normally: Executes instruction only if condition is met
+condotions:
+| hex | name | desc | args | argdesc |
+| - | - | - | - | - |
+| 0x1000 | eq | equals || a b ||
+| 0x2000 | neq | not equal || a b ||
+| 0x3000 | ls | less || a b ||
+| 0x4000 | lseq | less or equal || a b ||
+| 0x5000 | gr | greater || a b ||
+| 0x6000 | greq | greater or equal || a b ||
+| 0x7000 | zr | zero | if arg is zero | a | a = to check|
+| 0x8000 | cr | carry | checks for the carry flag |||
+| 0x9000 | nz | not zero | if arg is not zero | a | a = to check|
+| 0xA000 | nc | no carry | checks for the carry flag|||
+| 0xB000 | itr | interrupt | checks for a specific interrupt to be triggered | a | a = interrupt |
 
 ## commom instruction arguments
 
