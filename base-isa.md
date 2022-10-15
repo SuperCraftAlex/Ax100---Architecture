@@ -28,6 +28,7 @@ CCCC = pa[^1]
 ## Instructions
 
 ### Basic instructions
+Every instruction uses the IMM pa[^1]
 | hex | opcode | name | args | pa[^1] | desc | arg desc |
 | --- | ------ | -----| ---- | --- | ---- | -------- |
 | 0x00 | nop | no operation |  |  | does nothing |  |
@@ -107,6 +108,14 @@ passes args to the target
 | 0x0010 | ap1 | pass 1 arg | a | a = arg to pass|
 | 0x0020 | ap2 | pass 2 arg | a b | a, b = args to pass|
 | 0x0030 | ap3 | pass 3 arg | a b c | a, b, c = args to pass|
+
+### IMM
+imediates a number
+| hex | opcode | desc | args | argdesc |
+| - | - | - | - | - |
+| ? | i1 | immediates the first arg of the instruction | | |
+| ? | i2 | immediates the second arg of the instruction | | |
+| ? | i3 | immediates the third arg of the instruction | | |
 
 ## commom instruction arguments
 
