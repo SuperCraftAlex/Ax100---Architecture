@@ -11,6 +11,7 @@ INSTR = 64 bit:
 | pa[^1] | Instruction | instruction length |
 | - | - | - |
 | 0001 - FFFF | 00 - FF | 0-F |
+
 = 0xCCCCBBA
 A = arg length
 BB = instruction
