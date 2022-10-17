@@ -128,7 +128,7 @@ imediates a number
 | 0x010 | res | ALU result register A |
 | 0x020 | reb | ALU result register B |
 | 0x030 | fla | ALU flag register A |
-| 0x040 | -| Reserved |
+| 0x040 | SP | stack pointer |
 | 0x050 to 0x070 | ar1 to ar3 | argument registers |
 | 0x080 to 0x0F0 | - | reserved |
 | 0x100 to 0x2F0 | r0 to r31 | General purpose register |
@@ -151,4 +151,9 @@ imediates a number
 ## I/O Devices
 
 ## RAM
+Every cpu gets its own bus connected to a ram controller connected to the ram storage.
+Every ram bank has its own controller. All cpus are connected to the ram controller via an own bus
+
 ### Stack
+The stack is in the same ram bank as the ram bank, code gets ececutes from.
+If code gets ececuted from a different place than ram, stack will be automatically in ram bank 1
