@@ -159,12 +159,15 @@ the hex value of the list of io ports can also be used as artument.
 | 0x2000 | reserved ||
 | 0x2010 | gpio 1 ||
 | 0x2020 | gpio 2 ||
-| 0x2030 | gpio 3 ||
-| 0x2040 | gpio 4 ||
-| 0x2050 | gpio 5 ||
+| 0x2030 to 0x20F0 | * gpio 3 to 16 | optional gpio |
 
 ### I/O bus layout
-
+Per i/o device:
+1x 64 bit line (cpu -> device)
+1x 64 bit line (device -> cpu)
+1x 1 bit line (cpu sending status)
+1x 1 bit line (decice sending status)
+1x 1 bit line (device sending not enabled)
 
 ## RAM
 Every cpu gets its own bus connected to a ram controller connected to the ram storage.
@@ -175,3 +178,5 @@ Every ram bank has its own controller. All cpus are connected to the ram control
 ### Stack
 The stack is in the same ram bank as the ram bank, code gets ececutes from.
 If code gets ececuted from a different place than ram, stack will be automatically in ram bank 1
+
+It gets controlled internally by the SP register but you should acces it with push and pop.
