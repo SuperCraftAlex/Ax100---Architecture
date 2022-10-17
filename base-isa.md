@@ -59,6 +59,8 @@ Every instruction can be used with the IMM pa[^1]
 | 0x18 | hlt | halt (core) | | | halts the core | |
 | 0x19 | hlp | halt (cpu) | | | halts the whole cpu | |
 | 0x1A | xchg[^2] | exchange | a b | | exchanges two positions | a, b = things to exchange |
+| 0x1B | push | push to stack | a ||| a = value |
+| 0x1C | pop | pop from stack | o ||| o = output addres |
 
 ### Advanced & Compatibility & Multi core instructions
 | hex | opcode | name | args | pa* | desc | arg desc |
@@ -145,3 +147,8 @@ imediates a number
 ### possible interrupt conditions
 | hex | name | desc | arguments it sets |
 | - | - | - | - |
+
+## I/O Devices
+
+## RAM
+### Stack
