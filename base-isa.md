@@ -28,7 +28,7 @@ CCCC = pa[^1]
 ## Instructions
 
 ### Basic instructions
-Every instruction uses the IMM pa[^1]
+Every instruction can be used with the IMM pa[^1]
 | hex | opcode | name | args | pa[^1] | desc | arg desc |
 | --- | ------ | -----| ---- | --- | ---- | -------- |
 | 0x00 | nop | no operation |  |  | does nothing |  |
