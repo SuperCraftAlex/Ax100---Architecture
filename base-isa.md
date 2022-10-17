@@ -141,6 +141,9 @@ imediates a number
 | 0x1010 | ra2 | Ram accses for bank 2 |
 
 ### I/O devices as arguments
+IO devices can be used as argument for instruction.
+
+See section "I/O devices" for more information
 
 ## Interrupts
 
@@ -149,10 +152,25 @@ imediates a number
 | - | - | - | - |
 
 ## I/O Devices
+IO has nothing to do with ram! In this section only IO is described
+the hex value of the list of io ports can also be used as artument.
+| hex | port | desc |
+| - | - | - |
+| 0x2000 | reserved ||
+| 0x2010 | gpio 1 ||
+| 0x2020 | gpio 2 ||
+| 0x2030 | gpio 3 ||
+| 0x2040 | gpio 4 ||
+| 0x2050 | gpio 5 ||
+
+### I/O bus layout
+
 
 ## RAM
 Every cpu gets its own bus connected to a ram controller connected to the ram storage.
 Every ram bank has its own controller. All cpus are connected to the ram controller via an own bus
+
+### ram bus layout
 
 ### Stack
 The stack is in the same ram bank as the ram bank, code gets ececutes from.
