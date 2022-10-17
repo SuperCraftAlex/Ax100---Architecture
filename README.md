@@ -25,3 +25,4 @@ Overcomplicated, extendable ISA implemented in the game "Turing Complete".
 - Ax104 Datatypes 1
 - Ax105 FPU operations 1
 - Ax106 Multi stream IO 
+- Ax107 Advanced logic operations
