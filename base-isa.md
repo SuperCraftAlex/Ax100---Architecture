@@ -74,7 +74,8 @@ Every instruction can be used with the IMM pa[^1]
 | 0x46 | unsi | unset interrupt | a | | stops listening on the interrupt condition | a = interrupt condition |
 | 0x47 | cli | clear interupt | a || clears the "triggered" flag of the specifies interrupt | a = interrupt|
 | 0x48 | cep | change core instruction load position | a b | | jumps to an specified addres from a different programm source | a = programm source; b = addres |
-| 0x49 | are | export arguments | a b c || exports the content of thw argument registers | a, b, c = destination |
+| 0x49 | are | export arguments | a b c || exports the content of the argument registers | a, b, c = destination |
+| 0x4A | ios | I/O send | a b c || sends data to an io device | a, b = source; c = destination |
 
 [^1]: possible arg sets
 [^2]: can't be implemented in a single tick
@@ -122,17 +123,20 @@ imediates a number
 ## commom instruction arguments
 
 ### register
-| hex | name | desc |
-| - | - | - |
-| 0x000 | pc | General Programm counter |
-| 0x010 | res | ALU result register A |
-| 0x020 | reb | ALU result register B |
-| 0x030 | fla | ALU flag register A |
-| 0x040 | SP | stack pointer |
-| 0x050 to 0x070 | ar1 to ar3 | argument registers |
-| 0x080 to 0x0F0 | - | reserved |
-| 0x100 to 0x2F0 | r0 to r31 | General purpose register |
-| 0x300 to 0xFF0 | (r32 to ?) | optional general purpose register |
+| c / p | hex | name | desc |
+|-| - | - | - |
+| c | 0x000 | pc | General Programm counter |
+| c | 0x010 | rea | ALU result register A |
+| c | 0x020 | reb | ALU result register B |
+| c | 0x030 | fla | ALU flag register A |
+| c | 0x040 | SP | stack pointer |
+| c | 0x050 to 0x070 | ar1 to ar3 | argument registers |
+| - | 0x080 to 0x0F0 | - | reserved |
+| c | 0x100 to 0x2F0 | r0 to r31 | General purpose register |
+| p | 0x300 to 0xFF0 | (r32 to ?) | optional general purpose register (processor located) |
+
+p: processor located
+c: core located
 
 ### ram as arguments
 | hex | name | desc|
@@ -163,7 +167,7 @@ the hex value of the list of io ports can also be used as artument.
 
 ### I/O bus layout
 Per i/o device:
-1x 64 bit line (cpu -> device)
+2x 64 bit line (cpu -> device)
 1x 64 bit line (device -> cpu)
 1x 1 bit line (cpu sending status)
 1x 1 bit line (decice sending status)
