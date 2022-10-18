@@ -141,8 +141,8 @@ c: core located
 ### ram as arguments
 | hex | name | desc|
 | - | - | - |
-| 0x1000 | ra1 | Ram accses for bank 1 |
-| 0x1010 | ra2 | Ram accses for bank 2 |
+| 0x100000 | ra1 | Ram accses for bank 1 |
+| 0x110000 | ra2 | Ram accses for bank 2 |
 
 ### I/O devices as arguments
 IO devices can be used as argument for instruction.
