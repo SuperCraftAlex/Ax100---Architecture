@@ -48,17 +48,17 @@ Every instruction can be used with the IMM pa[^1]
 | 0x0D | shr | shift right | a b o |  |  | a, b = from; o = to |
 | 0x0E | - | reserved | | | | |
 | 0x0F | asr | arithmetic shift right | a b o |  |  | a, b = from; o = to |
-| 0x10 | rg1 | Ram get bank 1 | a o |  | outputs the value of a 64 bit value in ram bank 1 to o | a = addres; o = to |
-| 0x11 | rs1 | Ram set bank 1 | a b |  | sets the value of a element in ram bank 1 to b | a = addres; b = value |
-| 0x12 | rg2 | Ram get bank 2 | a o |  | outputs the value of a 64 bit value in ram bank 1 to o | a = addres; o = to |
-| 0x13 | rs2 | Ram set bank 2 | a b |  | sets the value of a element in ram bank 2 to b | a = addres; b = value |
+| 0x10 | - | reserved | | | | |
+| 0x11 | - | reserved | | | | |
+| 0x12 | - | reserved | | | | |
+| 0x13 | - | reserved | | | | |
 | 0x14 | jmp | jump | a | COND | jumps to a programm addres | a = programm addres to jump to |
 | 0x15 | jsr | jump to subroutine | a | COND; ARGPS | jumps to a programm addres with pushing the last position to stack | a = programm addres to jump to |
 | 0x16 | jck | jump kernal | a | COND; ARGPS |  | a = programm addres to jump to |
 | 0x17 | ret | return | | ARGPS; COND | returns from subroutine | |
 | 0x18 | hlt | halt (core) | | | halts the core | |
 | 0x19 | hlp | halt (cpu) | | | halts the whole cpu | |
-| 0x1A | xchg[^2] | exchange | a b | | exchanges two positions | a, b = things to exchange |
+| 0x1A | xchg | exchange | a b | | exchanges two positions | a, b = things to exchange |
 | 0x1B | push | push to stack | a ||| a = value |
 | 0x1C | pop | pop from stack | o ||| o = output addres |
 
@@ -78,7 +78,6 @@ Every instruction can be used with the IMM pa[^1]
 | 0x4A | ios | I/O send | a b c || sends data to an io device | a, b = source; c = destination |
 
 [^1]: possible arg sets
-[^2]: can't be implemented in a single tick
 
 ## instruction addition sets
 
@@ -129,10 +128,10 @@ imediates a number
 | c | 0x010 | rea | ALU result register A |
 | c | 0x020 | reb | ALU result register B |
 | c | 0x030 | fla | ALU flag register A |
-| c | 0x040 | SP | stack pointer |
+| c | 0x040 | sp | stack pointer |
 | c | 0x050 to 0x070 | ar1 to ar3 | argument registers |
 | - | 0x080 to 0x0F0 | - | reserved |
-| c | 0x100 to 0x2F0 | r0 to r31 | General purpose register |
+| c | 0x100 to 0x2F0 | r0 to r31 | general purpose register |
 | p | 0x300 to 0xFF0 | (r32 to ?) | optional general purpose register (processor located) |
 
 p: processor located
@@ -141,8 +140,9 @@ c: core located
 ### ram as arguments
 | hex | name | desc|
 | - | - | - |
-| 0x100000 | ra1 | Ram accses for bank 1 |
-| 0x110000 | ra2 | Ram accses for bank 2 |
+| ? | ra1 | Ram accses for bank 1 |
+| ? | ra2 | Ram accses for bank 2 |
+If you want to write/read to/from a specific ram address use the hex code of the ram bank combined with the addres
 
 ### I/O devices as arguments
 IO devices can be used as argument for instruction.
